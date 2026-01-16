@@ -1,0 +1,8 @@
+{
+  "name": "VisionTrack Pro",
+  "description": "Real-time object detection and tracking application using TensorFlow.js for local processing and Gemini 2.5 Flash for scene analysis.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
