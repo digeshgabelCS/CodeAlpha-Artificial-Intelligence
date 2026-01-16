@@ -1,0 +1,8 @@
+{
+  "name": "Nexora Ai",
+  "description": "A dual-mode chatbot that uses local Cosine Similarity algorithms for FAQ matching and Google Gemini for conversational AI fallbacks.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
