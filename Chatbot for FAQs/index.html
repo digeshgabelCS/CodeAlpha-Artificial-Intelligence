@@ -1,1 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Nexora Ai | FAQ Bot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Robust Polyfill for process.env
+      window.process = window.process || {};
+      window.process.env = window.process.env || {};
+      // Ensure API_KEY is populated from the environment injection if available, or default to empty
+      window.process.env.API_KEY = window.process.env.API_KEY || '';
+      
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Söhne', 'Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Ubuntu', 'Cantarell', 'Noto Sans', 'sans-serif', 'Helvetica Neue', 'Arial', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],
+            },
+            colors: {
+              gpt: {
+                dark: '#212121',
+                sidebar: '#171717',
+                user: '#2f2f2f',
+                hover: '#2f2f2f',
+                input: '#2f2f2f',
+                light: '#ffffff',
+                lightgray: '#f9f9f9',
+              }
+            },
+            animation: {
+              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'wave-1': 'wave 1.2s ease-in-out infinite',
+              'wave-2': 'wave 1.2s ease-in-out infinite 0.2s',
+              'wave-3': 'wave 1.2s ease-in-out infinite 0.4s',
+            },
+            keyframes: {
+              wave: {
+                '0%, 100%': { height: '6px' },
+                '50%': { height: '16px' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <style>
+      :root {
+        --app-height: 100%;
+      }
+      body {
+        font-family: 'Söhne', 'Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Ubuntu', 'Cantarell', 'Noto Sans', 'sans-serif', 'Helvetica Neue', 'Arial', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+        overscroll-behavior-y: none;
+      }
+      /* Custom scrollbar for chat area */
+      .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+      }
+      .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+      }
 
+      /* Markdown Styles specific to GPT look */
+      .markdown-content { font-size: 1rem; line-height: 1.75; }
+      .markdown-content h1, .markdown-content h2, .markdown-content h3 { font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; color: inherit; }
+      .markdown-content p { margin-bottom: 1rem; }
+      .markdown-content ul, .markdown-content ol { margin-left: 1.5rem; margin-bottom: 1rem; }
+      .markdown-content ul { list-style-type: disc; }
+      .markdown-content ol { list-style-type: decimal; }
+      .markdown-content li { margin-bottom: 0.25rem; }
+      .markdown-content code { font-family: 'Menlo', 'Monaco', 'Courier New', monospace; font-size: 0.9em; border-radius: 0.25rem; }
+      .markdown-content pre { padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin: 1rem 0; }
+      
+      /* Light Mode Code */
+      .markdown-content code { background-color: #f3f4f6; color: #111827; }
+      .markdown-content pre { background-color: #0d0d0d; color: #fff; }
+      .markdown-content pre code { background-color: transparent; color: inherit; }
+
+      /* Dark Mode Code */
+      .dark .markdown-content code { background-color: rgba(255,255,255,0.1); color: #e5e5e5; }
+      .dark .markdown-content pre { background-color: #0d0d0d; border: 1px solid #333; }
+
+      /* Tables */
+      .markdown-content table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; }
+      .markdown-content th, .markdown-content td { border: 1px solid #e5e7eb; padding: 0.5rem; text-align: left; }
+      .dark .markdown-content th, .dark .markdown-content td { border-color: #404040; }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@18.3.1/",
+    "react": "https://esm.sh/react@18.3.1",
+    "react-dom/": "https://esm.sh/react-dom@18.3.1/",
+    "react-dom": "https://esm.sh/react-dom@18.3.1",
+    "@google/genai": "https://esm.sh/@google/genai",
+    "lucide-react": "https://esm.sh/lucide-react@0.395.0?deps=react@18.3.1",
+    "react-markdown": "https://esm.sh/react-markdown@8.0.7?deps=react@18.3.1",
+    "remark-gfm": "https://esm.sh/remark-gfm@3.0.1?deps=react@18.3.1",
+    "rehype-highlight": "https://esm.sh/rehype-highlight@6.0.0?deps=react@18.3.1",
+    "jspdf": "https://esm.sh/jspdf@2.5.1"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-white dark:bg-gpt-dark text-gray-900 dark:text-gray-100 antialiased h-[100dvh] overflow-hidden">
+    <div id="root" class="h-full"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
