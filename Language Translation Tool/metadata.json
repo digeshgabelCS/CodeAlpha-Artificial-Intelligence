@@ -1,0 +1,8 @@
+
+{
+  "name": "Linguist AI: Professional Translation Tool",
+  "description": "A high-performance translation application powered by Gemini 3.0, featuring real-time translation, language detection, and high-fidelity text-to-speech output.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
